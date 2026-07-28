@@ -1,0 +1,22 @@
+
+   InvalidArgumentException 
+
+  Database connection [portfolio] not configured.
+
+  at vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php:226
+    222▕ 
+    223▕         $config = $this->dynamicConnectionConfigurations[$name] ?? Arr::get($connections, $name);
+    224▕ 
+    225▕         if (is_null($config)) {
+  ➜ 226▕             throw new InvalidArgumentException("Database connection [{$name}] not configured.");
+    227▕         }
+    228▕ 
+    229▕         return (new ConfigurationUrlParser)
+    230▕             ->parseConfiguration($config);
+
+  1   vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php:192
+      Illuminate\Database\DatabaseManager::configuration("portfolio")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php:103
+      Illuminate\Database\DatabaseManager::makeConnection("portfolio")
+

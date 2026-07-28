@@ -1,9 +1,146 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+:root {
+    --font-heading: 'Sora', 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --color-dark: #0D0D0D;
+    --color-dark-secondary: #1A1A1A;
+    --color-dark-card: #141414;
+    --color-accent: #00D9A6;
+    --color-accent-dark: #00b88d;
+    --color-text-primary: #F5F5F5;
+    --color-text-secondary: #A0A0A0;
+    --color-glass: rgba(255, 255, 255, 0.03);
+    --color-glass-border: rgba(255, 255, 255, 0.06);
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+@layer base {
+    * {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background-color: var(--color-dark);
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--color-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-accent);
+        border-radius: 4px;
+    }
+}
+
+@layer components {
+    .glass-card {
+        background: var(--color-glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--color-glass-border);
+        border-radius: 16px;
+    }
+
+    .glow-border {
+        position: relative;
+    }
+
+    .glow-border::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, var(--color-accent), transparent 50%, var(--color-accent));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.3;
+        transition: opacity 0.3s ease;
+    }
+
+    .glow-border:hover::before {
+        opacity: 1;
+    }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #00D9A6, #00F5FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #00D9A6, #00b88d);
+        color: var(--color-dark);
+        padding: 12px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 40px rgba(0, 217, 166, 0.3);
+    }
+
+    .btn-outline {
+        border: 2px solid var(--color-accent);
+        color: var(--color-accent);
+        padding: 12px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: transparent;
+    }
+
+    .btn-outline:hover {
+        background: var(--color-accent);
+        color: var(--color-dark);
+        box-shadow: 0 10px 40px rgba(0, 217, 166, 0.3);
+    }
+
+    .section-heading {
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .animated-gradient-text {
+        background: linear-gradient(270deg, #00D9A6, #00F5FF, #00D9A6);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite;
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 166, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(0, 217, 166, 0.4); }
 }
