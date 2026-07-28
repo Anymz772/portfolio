@@ -4,7 +4,7 @@
 <div class="max-w-3xl mx-auto space-y-8">
     <div>
         <h1 class="text-3xl lg:text-4xl font-display font-bold">Edit Testimonial</h1>
-        <p class="text-muted-foreground mt-2">Update client feedback, star rating, and company details.</p>
+        <p class="text-muted-foreground mt-2">Update client recommendation content, position, and company details.</p>
     </div>
 
     <form action="{{ route('admin.testimonials.update', $testimonial) }}" method="POST" class="glass-card p-6 lg:p-8 rounded-3xl space-y-6">
@@ -28,15 +28,6 @@
         </div>
 
         <div>
-            <label class="form-label">Rating</label>
-            <select name="rating" required class="form-input">
-                @for($i = 5; $i >= 1; $i--)
-                <option value="{{ $i }}" {{ old('rating', $testimonial->rating) == $i ? 'selected' : '' }}>{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
-                @endfor
-            </select>
-        </div>
-
-        <div>
             <label class="form-label">Testimonial Content</label>
             <textarea name="content" rows="4" required class="form-input resize-none">{{ old('content', $testimonial->content) }}</textarea>
         </div>
@@ -48,7 +39,7 @@
 
         <div class="flex items-center space-x-3 pt-2">
             <input type="checkbox" name="is_active" value="1" {{ old('is_active', $testimonial->is_active) ? 'checked' : '' }} class="w-4 h-4 accent-primary rounded cursor-pointer">
-            <label class="text-sm font-medium">Active (Visible)</label>
+            <label class="text-sm font-medium">Active (Visible on portfolio)</label>
         </div>
 
         <div class="flex justify-end space-x-4 pt-4 border-t border-border">

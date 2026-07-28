@@ -27,10 +27,12 @@ class TestimonialController extends Controller
             'client_position' => 'nullable|string|max:255',
             'client_company' => 'nullable|string|max:255',
             'content' => 'required|string',
-            'rating' => 'required|integer|min:1|max:5',
+            'rating' => 'nullable|integer|min:1|max:5',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
+
+        $validated['rating'] = $validated['rating'] ?? 5;
 
         Testimonial::create($validated);
 
@@ -49,10 +51,12 @@ class TestimonialController extends Controller
             'client_position' => 'nullable|string|max:255',
             'client_company' => 'nullable|string|max:255',
             'content' => 'required|string',
-            'rating' => 'required|integer|min:1|max:5',
+            'rating' => 'nullable|integer|min:1|max:5',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
+
+        $validated['rating'] = $validated['rating'] ?? $testimonial->rating ?? 5;
 
         $testimonial->update($validated);
 
