@@ -37,8 +37,8 @@ class ProjectController extends Controller
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
-        $validated['technologies'] = json_encode(array_map('trim', explode(',', $request->technologies)));
-        $validated['features'] = json_encode(array_map('trim', explode(',', $request->features)));
+        $validated['technologies'] = array_filter(array_map('trim', explode(',', (string) $request->technologies)));
+        $validated['features'] = array_filter(array_map('trim', explode(',', (string) $request->features)));
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('projects', 'public');
@@ -70,8 +70,8 @@ class ProjectController extends Controller
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
-        $validated['technologies'] = json_encode(array_map('trim', explode(',', $request->technologies)));
-        $validated['features'] = json_encode(array_map('trim', explode(',', $request->features)));
+        $validated['technologies'] = array_filter(array_map('trim', explode(',', (string) $request->technologies)));
+        $validated['features'] = array_filter(array_map('trim', explode(',', (string) $request->features)));
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('projects', 'public');

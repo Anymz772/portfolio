@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
             'title_line1' => 'Build',
             'title_line2' => 'Digital',
             'title_line3' => 'Solutions',
-            'description' => 'I build scalable web applications, backend systems, and modern digital solutions with clean architecture, performance, and great user experiences.',
-            'typing_texts' => ['Laravel Developer', 'Backend Engineer', 'Full Stack Developer'],
+            'description' => 'I build scalable web applications, backend systems, and modern digital experiences using Laravel, PHP, JavaScript, and modern web technologies.',
+            'typing_texts' => ['Software Engineer', 'Laravel Developer', 'Backend Developer', 'Network Enthusiast'],
         ]);
 
         // About Content
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
 
         // Contact Information
         ContactInformation::create([
-            'email' => 'aiman@example.com',
+            'email' => 'aimanhakim.dev@gmail.com',
             'phone' => '+60 12-345-6789',
             'location' => 'Kuala Lumpur, Malaysia',
             'linkedin_url' => 'https://linkedin.com/in/aimanhakim',

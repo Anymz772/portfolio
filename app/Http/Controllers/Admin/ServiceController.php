@@ -31,7 +31,7 @@ class ServiceController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        $validated['features'] = json_encode(array_map('trim', explode(',', $request->features)));
+        $validated['features'] = array_filter(array_map('trim', explode(',', (string) $request->features)));
 
         Service::create($validated);
 
@@ -54,7 +54,7 @@ class ServiceController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        $validated['features'] = json_encode(array_map('trim', explode(',', $request->features)));
+        $validated['features'] = array_filter(array_map('trim', explode(',', (string) $request->features)));
 
         $service->update($validated);
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutContent;
 use App\Models\ContactInformation;
 use App\Models\ContactMessage;
 use App\Models\Experience;
+use App\Models\HeroContent;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Skill;
@@ -21,6 +23,8 @@ class PortfolioController extends Controller
         $services = Service::active()->orderBy('sort_order')->get();
         $testimonials = Testimonial::active()->orderBy('sort_order')->get();
         $contactInfo = ContactInformation::first();
+        $heroContent = HeroContent::first();
+        $aboutContent = AboutContent::first();
 
         return view('portfolio.index', compact(
             'skills',
@@ -28,7 +32,9 @@ class PortfolioController extends Controller
             'projects',
             'services',
             'testimonials',
-            'contactInfo'
+            'contactInfo',
+            'heroContent',
+            'aboutContent',
         ));
     }
 

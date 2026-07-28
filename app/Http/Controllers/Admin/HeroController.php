@@ -27,9 +27,8 @@ class HeroController extends Controller
 
         $hero = HeroContent::firstOrCreate([]);
 
-        // Handle typing texts as JSON
         if ($request->typing_texts) {
-            $validated['typing_texts'] = json_encode(array_map('trim', explode(',', $request->typing_texts)));
+            $validated['typing_texts'] = array_map('trim', explode(',', $request->typing_texts));
         }
 
         if ($request->hasFile('profile_image')) {

@@ -34,7 +34,7 @@ class ExperienceController extends Controller
             'sort_order' => 'nullable|integer|min:0',
         ]);
 
-        $validated['responsibilities'] = json_encode(array_map('trim', explode("\n", $request->responsibilities)));
+        $validated['responsibilities'] = array_filter(array_map('trim', explode("\n", (string) $request->responsibilities)));
 
         Experience::create($validated);
 
@@ -60,7 +60,7 @@ class ExperienceController extends Controller
             'sort_order' => 'nullable|integer|min:0',
         ]);
 
-        $validated['responsibilities'] = json_encode(array_map('trim', explode("\n", $request->responsibilities)));
+        $validated['responsibilities'] = array_filter(array_map('trim', explode("\n", (string) $request->responsibilities)));
 
         $experience->update($validated);
 
