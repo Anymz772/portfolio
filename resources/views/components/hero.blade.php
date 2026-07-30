@@ -3,7 +3,7 @@
 @php
     $portrait = $heroContent?->profile_image
         ? asset('storage/'.$heroContent->profile_image)
-        : asset('images/profile.jpg');
+        : asset('images/hero-profile.jpg');
 
     $typingTexts = $heroContent?->typing_texts ?? [
         'Software Engineer',

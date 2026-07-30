@@ -3,7 +3,7 @@
 @php
     $portrait = $aboutContent?->profile_image
         ? asset('storage/'.$aboutContent->profile_image)
-        : asset('images/profile.jpg');
+        : asset('images/about-profile.jpg');
 
     $bioParagraphs = $aboutContent?->bio
         ? array_filter(array_map('trim', preg_split('/\n\s*\n/', $aboutContent->bio)))
