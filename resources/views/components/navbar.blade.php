@@ -61,10 +61,7 @@
     <ul
         x-show="open"
         x-cloak
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 -translate-y-2"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        class="animate-fade-in border-t border-border bg-background/95 px-5 py-4 backdrop-blur-xl lg:hidden"
+        class="border-t border-border bg-background/95 px-5 py-4 backdrop-blur-xl lg:hidden"
     >
         @foreach($links as $link)
             <li>

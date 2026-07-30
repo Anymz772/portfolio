@@ -41,7 +41,6 @@
                                     class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     onerror="this.src='{{ asset('images/project-placeholder.svg') }}'"
                                 >
-                                <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
                             </div>
 
                             <div class="flex flex-1 flex-col p-6">

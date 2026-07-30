@@ -3,7 +3,7 @@
 @php
     $portrait = $heroContent?->profile_image
         ? asset('storage/'.$heroContent->profile_image)
-        : asset('images/portrait-placeholder.svg');
+        : asset('images/profile.jpg');
 
     $typingTexts = $heroContent?->typing_texts ?? [
         'Software Engineer',
@@ -78,9 +78,8 @@
                     width="1024"
                     height="1280"
                     class="h-full w-full object-cover aspect-[4/5]"
-                    onerror="this.src='{{ asset('images/portrait-placeholder.svg') }}'"
+                    onerror="this.src='{{ asset('images/profile.jpg') }}'"
                 >
-                <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent"></div>
             </div>
         </div>
     </div>

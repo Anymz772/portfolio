@@ -3,7 +3,7 @@
 @php
     $portrait = $aboutContent?->profile_image
         ? asset('storage/'.$aboutContent->profile_image)
-        : asset('images/portrait-placeholder.svg');
+        : asset('images/profile.jpg');
 
     $bioParagraphs = $aboutContent?->bio
         ? array_filter(array_map('trim', preg_split('/\n\s*\n/', $aboutContent->bio)))
@@ -33,7 +33,7 @@
                     width="1024"
                     height="1280"
                     class="h-full w-full object-cover aspect-[4/5]"
-                    onerror="this.src='{{ asset('images/portrait-placeholder.svg') }}'"
+                    onerror="this.src='{{ asset('images/profile.jpg') }}'"
                 >
             </div>
         </div>
