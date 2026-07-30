@@ -28,7 +28,7 @@
                     ));
                 @endphp
 
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}">
+                <div>
                     <div data-tilt class="h-full transition-transform duration-300">
                         <article class="glass-card group flex h-full flex-col overflow-hidden rounded-3xl">
                             <div class="relative overflow-hidden">

@@ -6,7 +6,7 @@
 
         <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             @foreach($services as $service)
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 80 }}" class="glass-card group h-full rounded-3xl p-6">
+                <div class="glass-card group h-full rounded-3xl p-6">
                     <span class="inline-flex rounded-2xl border border-primary/30 p-3 text-primary transition-shadow group-hover:shadow-primary-sm">
                         <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $service->icon }}" />

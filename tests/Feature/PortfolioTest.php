@@ -2,14 +2,17 @@
 
 use App\Models\Experience;
 
+beforeEach(function () {
+    $this->seed();
+});
+
 test('portfolio page renders successfully', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
     $response->assertSee('aiman');
-    $response->assertSee('Build');
-    $response->assertSee('Digital');
-    $response->assertSee('Solutions');
+    $response->assertSee('Software');
+    $response->assertSee('Web Systems');
 });
 
 test('portfolio page handles experiences with array or string responsibilities safely', function () {

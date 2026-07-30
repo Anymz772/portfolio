@@ -7,19 +7,19 @@
 
     $typingTexts = $heroContent?->typing_texts ?? [
         'Software Engineer',
-        'Laravel Developer',
-        'Backend Developer',
-        'Network Enthusiast',
+        'Laravel & Web Systems',
+        'Full Stack Developer',
+        'System Architect',
     ];
 
     $titleLines = [
-        $heroContent?->title_line1 ?? 'Build',
-        $heroContent?->title_line2 ?? 'Digital',
-        $heroContent?->title_line3 ?? 'Solutions',
+        $heroContent?->title_line1 ?? 'Software',
+        $heroContent?->title_line2 ?? 'Engineering &',
+        $heroContent?->title_line3 ?? 'Web Systems',
     ];
 
     $description = $heroContent?->description
-        ?? 'I build scalable web applications, backend systems, and modern digital experiences using Laravel, PHP, JavaScript, and modern web technologies.';
+        ?? 'Software Engineer building high-performance Laravel web applications, modern web interfaces, and scalable backend architectures.';
 @endphp
 
 <section id="home" class="relative overflow-hidden pb-24 pt-36 md:pb-32 md:pt-44">
@@ -29,15 +29,15 @@
     <div aria-hidden="true" class="pointer-events-none absolute -right-32 bottom-0 size-[24rem] rounded-full bg-primary/10 blur-[130px]"></div>
 
     <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-5 lg:grid-cols-[1.05fr_0.95fr]">
-        <div data-aos="fade-up">
+        <div>
             <p class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs uppercase tracking-[0.25em] text-primary">
                 <span class="size-1.5 rounded-full bg-primary"></span>
                 Available for work
             </p>
 
             <h1 class="mt-7 font-display text-[clamp(2.9rem,10vw,5.5rem)] font-extrabold leading-[0.95]">
-                @foreach($titleLines as $line)
-                    <span @class(['block', 'text-outline' => $line === 'Digital'])>{{ $line }}</span>
+                @foreach($titleLines as $index => $line)
+                    <span @class(['block', 'text-outline' => $index === 1])>{{ $line }}</span>
                 @endforeach
             </h1>
 
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div data-aos="fade-left" class="relative mx-auto w-full max-w-md">
+        <div class="relative mx-auto w-full max-w-md">
             <div class="gradient-border overflow-hidden rounded-[2rem]">
                 <img
                     src="{{ $portrait }}"

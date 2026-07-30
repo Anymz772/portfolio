@@ -1,14 +1,4 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 document.addEventListener('DOMContentLoaded', () => {
-    AOS.init({
-        once: true,
-        offset: 80,
-        duration: 700,
-        easing: 'ease-out-cubic',
-    });
-
     initTypewriter();
     initParticles();
     initTiltCards();
@@ -148,13 +138,19 @@ document.addEventListener('alpine:init', () => {
             const form = event.target;
             const formData = new FormData(form);
 
+            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+            const headers = {
+                Accept: 'application/json',
+            };
+
+            if (csrfMeta && csrfMeta.content) {
+                headers['X-CSRF-TOKEN'] = csrfMeta.content;
+            }
+
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                        Accept: 'application/json',
-                    },
+                    headers: headers,
                     body: formData,
                 });
 

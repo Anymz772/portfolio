@@ -11,7 +11,7 @@
             ></span>
 
             @foreach($experiences as $experience)
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}" class="relative pb-12 last:pb-0">
+                <div class="relative pb-12 last:pb-0">
                     <span class="absolute -left-8 top-2 size-4 rounded-full border-2 border-primary bg-background sm:-left-12"></span>
 
                     <div class="glass-card rounded-3xl p-6">

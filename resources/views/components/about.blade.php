@@ -24,7 +24,7 @@
     <x-section-heading eyebrow="About" title="A little about me" />
 
     <div class="mt-14 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <div data-aos="fade-right" class="mx-auto w-full max-w-sm">
+        <div class="mx-auto w-full max-w-sm">
             <div class="glow-ring overflow-hidden rounded-[2rem]">
                 <img
                     src="{{ $portrait }}"
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div data-aos="fade-left">
+        <div>
             <h3 class="text-2xl font-bold sm:text-3xl">
                 Hi, I'm <span class="text-primary">Muhammad Aiman Hakim</span>.
             </h3>

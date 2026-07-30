@@ -9,7 +9,7 @@
         />
 
         <div class="mt-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-            <div data-aos="fade-right" class="glass-card h-full rounded-3xl p-7">
+            <div class="glass-card h-full rounded-3xl p-7">
                 <ul class="space-y-6">
                     @if($contactInfo?->email)
                         <li class="flex min-w-0 items-start gap-4">
@@ -84,15 +84,18 @@
                 </ul>
             </div>
 
-            <div data-aos="fade-left">
+            <div>
                 <form
                     x-data="contactForm"
                     @submit.prevent="submitForm"
-                    action="{{ route('contact.submit') }}"
+                    action="{{ $contactInfo?->email ? 'https://formsubmit.co/ajax/' . $contactInfo->email : route('contact.submit') }}"
                     method="POST"
                     class="glass-card rounded-3xl p-7"
                 >
                     @csrf
+                    <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_template" value="table">
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
                             <label for="name" class="form-label">Name</label>
