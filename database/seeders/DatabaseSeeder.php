@@ -312,8 +312,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'hakimnizam772@gmail.com',
             'phone' => '011-51468013',
             'location' => 'Sungai Siput (U), Perak',
-            'linkedin_url' => 'https://linkedin.com/in/hakimnizam772',
-            'github_url' => 'https://github.com/hakimnizam772',
+            'github_url' => 'https://anymz772.github.io/portfolio/',
         ]);
     }
 }
