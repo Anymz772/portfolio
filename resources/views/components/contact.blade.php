@@ -88,7 +88,7 @@
                 <form
                     x-data="contactForm"
                     @submit.prevent="submitForm"
-                    action="{{ $contactInfo?->email ? 'https://formsubmit.co/ajax/' . $contactInfo->email : route('contact.submit') }}"
+                    action="https://formspree.io/f/mojgzwdd"
                     method="POST"
                     class="glass-card rounded-3xl p-7"
                 >
