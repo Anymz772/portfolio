@@ -38,7 +38,18 @@ class PostProcessExport extends Command
         $content = str_replace('src="/build/', 'src="./build/', $content);
         $content = str_replace('href="/resume.pdf"', 'href="./resume.pdf"', $content);
         $content = str_replace('href="/favicon.ico"', 'href="./favicon.ico"', $content);
+        $content = str_replace('href="/favicon.svg"', 'href="./favicon.svg"', $content);
+        $content = str_replace('href="/favicon-32x32.png"', 'href="./favicon-32x32.png"', $content);
+        $content = str_replace('href="/favicon-16x16.png"', 'href="./favicon-16x16.png"', $content);
+        $content = str_replace('href="/apple-touch-icon.png"', 'href="./apple-touch-icon.png"', $content);
+        $content = str_replace('href="/site.webmanifest"', 'href="./site.webmanifest"', $content);
         $content = str_replace('src="/images/', 'src="./images/', $content);
+
+        // Ensure CNAME exists for GitHub Pages custom domain
+        $cnameTarget = base_path('docs/CNAME');
+        if (! File::exists($cnameTarget)) {
+            File::put($cnameTarget, "aimanhakim.homes\n");
+        }
 
         File::put($indexPath, $content);
 
