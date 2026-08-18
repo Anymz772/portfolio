@@ -45,3 +45,13 @@ test('portfolio page includes all main sections', function () {
     $response->assertSee('id="services"', false);
     $response->assertSee('id="contact"', false);
 });
+
+test('portfolio page includes favicon and manifest links', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertSee('favicon.svg', false);
+    $response->assertSee('favicon-32x32.png', false);
+    $response->assertSee('apple-touch-icon.png', false);
+    $response->assertSee('site.webmanifest', false);
+});

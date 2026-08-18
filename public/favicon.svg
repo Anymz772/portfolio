@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c242b"/>
+      <stop offset="50%" stop-color="#12181e"/>
+      <stop offset="100%" stop-color="#0a0e12"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#82ffd8"/>
+      <stop offset="100%" stop-color="#5eecc8"/>
+    </linearGradient>
+    <linearGradient id="strokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5eecc8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#5eecc8" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5eecc8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5eecc8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect x="20" y="20" width="472" height="472" rx="118" fill="url(#bgGrad)" stroke="url(#strokeGrad)" stroke-width="12"/>
+
+  <!-- Subtle ambient glow -->
+  <circle cx="256" cy="256" r="140" fill="#5eecc8" opacity="0.08" filter="blur(30px)"/>
+
+  <!-- Stylized Brand Letter 'A' -->
+  <g filter="url(#glow)">
+    <path d="M 256 104 L 388 396 H 318 L 290 334 H 222 L 194 396 H 124 Z M 256 196 L 235 284 H 277 Z" 
+          fill="url(#brandGrad)" 
+          stroke="#40d9b4" 
+          stroke-width="2" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Online / Active Status Dot -->
+  <circle cx="396" cy="396" r="56" fill="url(#dotGlow)"/>
+  <circle cx="396" cy="396" r="40" fill="#0c1014"/>
+  <circle cx="396" cy="396" r="30" fill="url(#brandGrad)"/>
+</svg>
