@@ -130,21 +130,32 @@ document.addEventListener('alpine:init', () => {
     window.Alpine.data('contactForm', () => ({
         sent: false,
         loading: false,
+        errorMessage: null,
 
         async submitForm(event) {
             event.preventDefault();
             this.loading = true;
+            this.errorMessage = null;
 
             const form = event.target;
             const formData = new FormData(form);
 
-            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+            // Determine if submitting to external service (like Formspree) or local Laravel route
+            const isExternal = form.action.startsWith('http://') || form.action.startsWith('https://');
+            const isSameOrigin = !isExternal || form.action.startsWith(window.location.origin);
+
             const headers = {
                 Accept: 'application/json',
             };
 
-            if (csrfMeta && csrfMeta.content) {
-                headers['X-CSRF-TOKEN'] = csrfMeta.content;
+            if (isSameOrigin) {
+                const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+                if (csrfMeta && csrfMeta.content) {
+                    headers['X-CSRF-TOKEN'] = csrfMeta.content;
+                }
+            } else {
+                // Delete Laravel CSRF token when sending to third-party endpoints to prevent CORS header issues
+                formData.delete('_token');
             }
 
             try {
@@ -157,12 +168,23 @@ document.addEventListener('alpine:init', () => {
                 if (response.ok) {
                     form.reset();
                     this.sent = true;
+                    this.errorMessage = null;
                     setTimeout(() => {
                         this.sent = false;
-                    }, 4000);
+                    }, 5000);
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    if (data && data.errors && data.errors.length > 0) {
+                        this.errorMessage = data.errors.map((e) => e.message || e).join(', ');
+                    } else if (data && data.error) {
+                        this.errorMessage = data.error;
+                    } else {
+                        this.errorMessage = 'Could not send message. Please try again or reach out directly by email.';
+                    }
                 }
             } catch (error) {
                 console.error('Contact form error:', error);
+                this.errorMessage = 'Network error sending message. Please check your connection or contact me via email.';
             } finally {
                 this.loading = false;
             }

@@ -92,10 +92,10 @@
                     method="POST"
                     class="glass-card rounded-3xl p-7"
                 >
-                    @csrf
+                    <!-- Formspree Anti-Spam Honeypot & Config -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                     <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_template" value="table">
+
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
                             <label for="name" class="form-label">Name</label>
@@ -124,17 +124,32 @@
                         <span x-text="loading ? 'Sending…' : 'Send Message'"></span>
                     </button>
 
+                    <!-- Success Feedback -->
                     <p
                         x-show="sent"
                         x-cloak
                         x-transition
                         role="status"
-                        class="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-primary"
+                        class="mt-5 flex items-center gap-2 rounded-2xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm text-primary"
                     >
-                        <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="size-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Message sent — thank you!
+                    </p>
+
+                    <!-- Error Feedback -->
+                    <p
+                        x-show="errorMessage"
+                        x-cloak
+                        x-transition
+                        role="alert"
+                        class="mt-5 flex items-center gap-2 rounded-2xl border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-sm text-red-400"
+                    >
+                        <svg class="size-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span x-text="errorMessage"></span>
                     </p>
                 </form>
             </div>

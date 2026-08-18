@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="gTaLZ6yS2X3D7Xmq5purtZGIVgV1bgRwF2Cw56u6">
+    <meta name="csrf-token" content="t3V64uRUu6yggfkcO6HIC6nFi7jtmwLmHmdQQQa1">
 
     <title>Muhammad Aiman Hakim — Software Engineer</title>
     <meta name="description" content="Portfolio of Muhammad Aiman Hakim — Laravel developer building scalable web applications and backend systems.">
@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600|sora:600,700,800&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="style" href="./build/assets/app-Dk06VweF.css" /><link rel="modulepreload" as="script" href="./build/assets/app-CFUKOGa1.js" /><link rel="stylesheet" href="./build/assets/app-Dk06VweF.css" /><script type="module" src="./build/assets/app-CFUKOGa1.js"></script>
+    <link rel="preload" as="style" href="./build/assets/app-Dk06VweF.css" /><link rel="modulepreload" as="script" href="./build/assets/app-CF819tgr.js" /><link rel="stylesheet" href="./build/assets/app-Dk06VweF.css" /><script type="module" src="./build/assets/app-CF819tgr.js"></script>
 </head>
 <body class="bg-background text-foreground">
     <div id="spotlight" aria-hidden="true" class="pointer-events-none fixed inset-0 z-30 hidden md:block"></div>
@@ -957,9 +957,10 @@
                     method="POST"
                     class="glass-card rounded-3xl p-7"
                 >
-                    <input type="hidden" name="_token" value="gTaLZ6yS2X3D7Xmq5purtZGIVgV1bgRwF2Cw56u6" autocomplete="off">                    <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_template" value="table">
+                    <!-- Formspree Anti-Spam Honeypot & Config -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
                             <label for="name" class="form-label">Name</label>
@@ -988,17 +989,32 @@
                         <span x-text="loading ? 'Sending…' : 'Send Message'"></span>
                     </button>
 
+                    <!-- Success Feedback -->
                     <p
                         x-show="sent"
                         x-cloak
                         x-transition
                         role="status"
-                        class="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-primary"
+                        class="mt-5 flex items-center gap-2 rounded-2xl border border-primary/40 bg-primary/10 px-4 py-2.5 text-sm text-primary"
                     >
-                        <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="size-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Message sent — thank you!
+                    </p>
+
+                    <!-- Error Feedback -->
+                    <p
+                        x-show="errorMessage"
+                        x-cloak
+                        x-transition
+                        role="alert"
+                        class="mt-5 flex items-center gap-2 rounded-2xl border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-sm text-red-400"
+                    >
+                        <svg class="size-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span x-text="errorMessage"></span>
                     </p>
                 </form>
             </div>
