@@ -13,6 +13,7 @@ class ContactInformation extends Model
         'email',
         'phone',
         'location',
+        'portfolio_url',
         'linkedin_url',
         'github_url',
         'twitter_url',

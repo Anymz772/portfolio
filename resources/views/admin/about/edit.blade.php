@@ -29,23 +29,25 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-                <label class="form-label">Completed Projects Count</label>
+                <label class="form-label">Projects</label>
                 <input type="number" name="projects_count" value="{{ old('projects_count', $about->projects_count) }}" required min="0" class="form-input">
+                <p class="mt-1 text-xs text-muted-foreground">Shown as e.g. 8+</p>
             </div>
             <div>
-                <label class="form-label">Years of Experience</label>
+                <label class="form-label">Years Experience</label>
                 <input type="number" name="experience_years" value="{{ old('experience_years', $about->experience_years) }}" required min="0" step="0.5" class="form-input">
+                <p class="mt-1 text-xs text-muted-foreground">Shown as e.g. 2+</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-                <label class="form-label">Expertise Level</label>
-                <input type="text" name="expertise_level" value="{{ old('expertise_level', $about->expertise_level) }}" required class="form-input" placeholder="e.g., Laravel Expert">
+                <label class="form-label">Current Role</label>
+                <input type="text" name="expertise_level" value="{{ old('expertise_level', $about->expertise_level) }}" required class="form-input" placeholder="e.g., Software Engineer">
             </div>
             <div>
-                <label class="form-label">Development Type</label>
-                <input type="text" name="development_type" value="{{ old('development_type', $about->development_type) }}" required class="form-input" placeholder="e.g., Full Stack">
+                <label class="form-label">Primary Focus</label>
+                <input type="text" name="development_type" value="{{ old('development_type', $about->development_type) }}" required class="form-input" placeholder="e.g., Laravel & Web Systems">
             </div>
         </div>
 

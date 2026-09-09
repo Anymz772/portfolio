@@ -5,7 +5,7 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "export": "vite build && php artisan export"
+        "export": "php artisan export"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
@@ -16,9 +16,5 @@
         "postcss": "^8.4.31",
         "tailwindcss": "^3.4.19",
         "vite": "^8.0.0"
-    },
-    "dependencies": {
-        "aos": "^2.3.4",
-        "swiper": "^14.0.6"
     }
 }

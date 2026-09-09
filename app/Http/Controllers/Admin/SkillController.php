@@ -24,12 +24,13 @@ class SkillController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'category' => 'required|in:backend,frontend,tools,networking',
-            'proficiency' => 'required|integer|min:0|max:100',
+            'category' => 'required|in:backend,frontend,database,tools,networking',
             'icon' => 'nullable|string|max:255',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
+
+        $validated['is_active'] = $request->boolean('is_active');
 
         Skill::create($validated);
 
@@ -45,12 +46,13 @@ class SkillController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'category' => 'required|in:backend,frontend,tools,networking',
-            'proficiency' => 'required|integer|min:0|max:100',
+            'category' => 'required|in:backend,frontend,database,tools,networking',
             'icon' => 'nullable|string|max:255',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
+
+        $validated['is_active'] = $request->boolean('is_active');
 
         $skill->update($validated);
 

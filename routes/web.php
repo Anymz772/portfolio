@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ResumeController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -29,6 +30,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // About Section
     Route::get('/about', [AboutController::class, 'edit'])->name('about.edit');
     Route::put('/about', [AboutController::class, 'update'])->name('about.update');
+
+    // Resume
+    Route::get('/resume', [ResumeController::class, 'edit'])->name('resume.edit');
+    Route::put('/resume', [ResumeController::class, 'update'])->name('resume.update');
 
     // Skills
     Route::resource('skills', SkillController::class);

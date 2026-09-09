@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Alumni Management System">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24302d"/>
+      <stop offset="100%" stop-color="#1f1f1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="640" rx="24" fill="#2a2a2a" stroke="#5eecc8" stroke-opacity="0.3"/>
+  <text x="120" y="170" fill="#5eecc8" font-family="system-ui,sans-serif" font-size="42" font-weight="700">Alumni Management</text>
+  <rect x="120" y="220" width="360" height="18" rx="9" fill="#5eecc8" opacity="0.35"/>
+  <rect x="120" y="280" width="920" height="360" rx="16" fill="#333"/>
+</svg>

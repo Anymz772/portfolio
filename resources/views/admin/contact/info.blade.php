@@ -26,6 +26,12 @@
             <input type="text" name="location" value="{{ old('location', $contactInfo->location) }}" class="form-input" placeholder="e.g., Kuala Lumpur, Malaysia">
         </div>
 
+        <div>
+            <label class="form-label">Portfolio Website</label>
+            <input type="url" name="portfolio_url" value="{{ old('portfolio_url', $contactInfo->portfolio_url) }}" class="form-input" placeholder="https://aimanhakim.homes/">
+            <p class="mt-1 text-xs text-muted-foreground">Your live site (custom domain), not the old github.io URL.</p>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="form-label">LinkedIn URL</label>
@@ -33,8 +39,9 @@
             </div>
 
             <div>
-                <label class="form-label">GitHub URL</label>
-                <input type="url" name="github_url" value="{{ old('github_url', $contactInfo->github_url) }}" class="form-input" placeholder="https://github.com/...">
+                <label class="form-label">GitHub Profile URL</label>
+                <input type="url" name="github_url" value="{{ old('github_url', $contactInfo->github_url) }}" class="form-input" placeholder="https://github.com/username">
+                <p class="mt-1 text-xs text-muted-foreground">Your GitHub profile (e.g. github.com/anymz772), not the portfolio site.</p>
             </div>
         </div>
 

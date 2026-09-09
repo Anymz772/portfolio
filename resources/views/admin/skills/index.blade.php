@@ -5,7 +5,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
             <h1 class="text-3xl lg:text-4xl font-display font-bold">Skills</h1>
-            <p class="text-muted-foreground mt-2">Manage your technical skills, categories, and proficiency percentages.</p>
+            <p class="text-muted-foreground mt-2">Manage the technical skills shown as tags on your portfolio.</p>
         </div>
         <a href="{{ route('admin.skills.create') }}" class="btn-primary shrink-0 self-start sm:self-auto">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,13 +22,12 @@
                     <tr class="border-b border-border bg-card/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                         <th class="p-5">Skill</th>
                         <th class="p-5">Category</th>
-                        <th class="p-5">Proficiency</th>
                         <th class="p-5">Status</th>
                         <th class="p-5 text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-border">
-                    @foreach($skills as $skill)
+                    @forelse($skills as $skill)
                     <tr class="hover:bg-card/40 transition-colors">
                         <td class="p-5">
                             <div class="flex items-center space-x-3">
@@ -40,14 +39,6 @@
                         </td>
                         <td class="p-5">
                             <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full capitalize border border-primary/20">{{ $skill->category }}</span>
-                        </td>
-                        <td class="p-5">
-                            <div class="flex items-center space-x-3 max-w-xs">
-                                <div class="flex-1 h-2 bg-background rounded-full overflow-hidden border border-border">
-                                    <div class="h-full bg-primary rounded-full" style="width: {{ $skill->proficiency }}%"></div>
-                                </div>
-                                <span class="text-xs font-mono text-muted-foreground">{{ $skill->proficiency }}%</span>
-                            </div>
                         </td>
                         <td class="p-5">
                             @if($skill->is_active)
@@ -75,7 +66,11 @@
                             </div>
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="4" class="p-8 text-center text-muted-foreground">No skills yet.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

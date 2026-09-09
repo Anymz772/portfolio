@@ -13,10 +13,10 @@
         ];
 
     $stats = [
-        ['value' => ($aboutContent?->projects_count ?? 10).'+', 'label' => 'Projects'],
-        ['value' => ($aboutContent?->experience_years ?? 2).'+', 'label' => 'Years Learning'],
-        ['value' => $aboutContent?->expertise_level ?? 'Laravel', 'label' => 'Expert'],
-        ['value' => $aboutContent?->development_type ?? 'Full Stack', 'label' => 'Development'],
+        ['value' => ($aboutContent?->projects_count ?? 8).'+', 'label' => 'Projects'],
+        ['value' => ($aboutContent?->experience_years ?? 2).'+', 'label' => 'Years Experience'],
+        ['value' => $aboutContent?->expertise_level ?? 'Software Engineer', 'label' => 'Current Role'],
+        ['value' => $aboutContent?->development_type ?? 'Laravel & Web Systems', 'label' => 'Primary Focus'],
     ];
 @endphp
 

@@ -67,6 +67,20 @@
                         </li>
                     @endif
 
+                    @if($contactInfo?->portfolio_url)
+                        <li class="flex min-w-0 items-start gap-4">
+                            <span class="mt-0.5 inline-flex shrink-0 rounded-xl bg-primary/10 p-2.5 text-primary">
+                                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                            </span>
+                            <div class="min-w-0">
+                                <p class="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Website</p>
+                                <a href="{{ $contactInfo->portfolio_url }}" target="_blank" rel="noopener noreferrer" class="truncate text-sm hover:text-primary">{{ $contactInfo->portfolio_url }}</a>
+                            </div>
+                        </li>
+                    @endif
+
                     @if($contactInfo?->location)
                         <li class="flex min-w-0 items-start gap-4">
                             <span class="mt-0.5 inline-flex shrink-0 rounded-xl bg-primary/10 p-2.5 text-primary">
@@ -88,7 +102,7 @@
                 <form
                     x-data="contactForm"
                     @submit.prevent="submitForm"
-                    action="https://formspree.io/f/mojgzwdd"
+                    action="{{ config('portfolio.formspree_endpoint') }}"
                     method="POST"
                     class="glass-card rounded-3xl p-7"
                 >

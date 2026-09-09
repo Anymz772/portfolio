@@ -31,24 +31,24 @@ class DatabaseSeeder extends Seeder
 
         // Admin User
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'name' => 'Aiman Hakim',
+            'email' => 'aiman@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
 
-        // Hero Content
+        // Hero Content (Grounded & Professional)
         HeroContent::create([
             'title_line1' => 'Software',
             'title_line2' => 'Engineering &',
             'title_line3' => 'Web Systems',
-            'description' => 'Software Engineer with experience in developing and maintaining enterprise web applications using Laravel, PHP, JavaScript, MySQL, and PostgreSQL.',
-            'typing_texts' => ['Software Engineer', 'Laravel & Web Developer', 'Full Stack Developer', 'System Architect'],
+            'description' => 'Software Engineer with practical experience in developing and maintaining enterprise web applications using Laravel, PHP, MySQL, and PostgreSQL.',
+            'typing_texts' => ['Software Engineer', 'Laravel & Web Developer', 'Backend Developer', 'Full Stack Developer'],
         ]);
 
         // About Content
         AboutContent::create([
-            'bio' => "Software Engineer with experience in developing and maintaining enterprise web applications using Laravel, PHP, JavaScript, MySQL, and PostgreSQL. Skilled in full-stack web development, database design, RESTful API development, system analysis, and legacy system modernization.\n\nExperienced throughout the software development lifecycle (SDLC), from requirements gathering and system design to testing, deployment, and maintenance. Passionate about building secure, scalable, and maintainable software solutions.",
+            'bio' => "Software Engineer with experience in developing and maintaining enterprise web applications using Laravel, PHP, JavaScript, MySQL, and PostgreSQL. Skilled in web application development, database design, system analysis, and legacy system modernization.\n\nExperienced throughout the software development lifecycle (SDLC), from requirements gathering and system design to testing, deployment, and maintenance. Passionate about building secure, scalable, and maintainable software solutions.",
             'projects_count' => 8,
             'experience_years' => 2,
             'expertise_level' => 'Software Engineer',
@@ -58,52 +58,46 @@ class DatabaseSeeder extends Seeder
         // Skills
         $skills = [
             // Backend Development
-            ['name' => 'Laravel', 'category' => 'backend', 'proficiency' => 95, 'sort_order' => 1],
-            ['name' => 'PHP (Vanilla)', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 2],
-            ['name' => 'RESTful API Development', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 3],
-            ['name' => 'JSON APIs', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 4],
-            ['name' => 'Eloquent ORM', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 5],
-            ['name' => 'Authentication & Authorization', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 6],
-            ['name' => 'Node.js', 'category' => 'backend', 'proficiency' => 85, 'sort_order' => 7],
-            ['name' => 'Express', 'category' => 'backend', 'proficiency' => 85, 'sort_order' => 8],
-            ['name' => 'NestJS', 'category' => 'backend', 'proficiency' => 80, 'sort_order' => 9],
-            ['name' => 'MVC Architecture', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 10],
-            ['name' => 'Object-Oriented Programming (OOP)', 'category' => 'backend', 'proficiency' => 90, 'sort_order' => 11],
+            ['name' => 'Laravel', 'category' => 'backend', 'sort_order' => 1],
+            ['name' => 'PHP (Vanilla / 8.x)', 'category' => 'backend', 'sort_order' => 2],
+            ['name' => 'Eloquent ORM', 'category' => 'backend', 'sort_order' => 3],
+            ['name' => 'Authentication & Authorization (Breeze/Spatie)', 'category' => 'backend', 'sort_order' => 4],
+            ['name' => 'MVC Architecture', 'category' => 'backend', 'sort_order' => 5],
+            ['name' => 'Object-Oriented Programming (OOP)', 'category' => 'backend', 'sort_order' => 6],
+            ['name' => 'Node.js & Express', 'category' => 'backend', 'sort_order' => 7],
+            ['name' => 'NestJS', 'category' => 'backend', 'sort_order' => 8],
 
             // Frontend Development
-            ['name' => 'Blade', 'category' => 'frontend', 'proficiency' => 90, 'sort_order' => 1],
-            ['name' => 'Livewire', 'category' => 'frontend', 'proficiency' => 90, 'sort_order' => 2],
-            ['name' => 'Alpine.js', 'category' => 'frontend', 'proficiency' => 85, 'sort_order' => 3],
-            ['name' => 'Tailwind CSS', 'category' => 'frontend', 'proficiency' => 90, 'sort_order' => 4],
-            ['name' => 'Bootstrap', 'category' => 'frontend', 'proficiency' => 85, 'sort_order' => 5],
-            ['name' => 'JavaScript & TypeScript', 'category' => 'frontend', 'proficiency' => 85, 'sort_order' => 6],
-            ['name' => 'React & Vue.js', 'category' => 'frontend', 'proficiency' => 75, 'sort_order' => 7],
-            ['name' => 'Inertia.js', 'category' => 'frontend', 'proficiency' => 75, 'sort_order' => 8],
-            ['name' => 'HTML5 & CSS3', 'category' => 'frontend', 'proficiency' => 90, 'sort_order' => 9],
+            ['name' => 'Blade Templates', 'category' => 'frontend', 'sort_order' => 1],
+            ['name' => 'Livewire', 'category' => 'frontend', 'sort_order' => 2],
+            ['name' => 'Tailwind CSS', 'category' => 'frontend', 'sort_order' => 3],
+            ['name' => 'Alpine.js', 'category' => 'frontend', 'sort_order' => 4],
+            ['name' => 'Bootstrap 5', 'category' => 'frontend', 'sort_order' => 5],
+            ['name' => 'JavaScript', 'category' => 'frontend', 'sort_order' => 6],
+            ['name' => 'HTML5 & CSS3', 'category' => 'frontend', 'sort_order' => 7],
 
             // Databases & GIS
-            ['name' => 'MySQL', 'category' => 'database', 'proficiency' => 90, 'sort_order' => 1],
-            ['name' => 'PostgreSQL', 'category' => 'database', 'proficiency' => 90, 'sort_order' => 2],
-            ['name' => 'Relational Database Design', 'category' => 'database', 'proficiency' => 90, 'sort_order' => 3],
-            ['name' => 'Database Migration', 'category' => 'database', 'proficiency' => 90, 'sort_order' => 4],
-            ['name' => 'Query Optimization', 'category' => 'database', 'proficiency' => 85, 'sort_order' => 5],
-            ['name' => 'Geoserver & OpenLayers (GIS)', 'category' => 'database', 'proficiency' => 80, 'sort_order' => 6],
+            ['name' => 'MySQL', 'category' => 'database', 'sort_order' => 1],
+            ['name' => 'PostgreSQL', 'category' => 'database', 'sort_order' => 2],
+            ['name' => 'Relational Database Design', 'category' => 'database', 'sort_order' => 3],
+            ['name' => 'Database Migrations & Seeding', 'category' => 'database', 'sort_order' => 4],
+            ['name' => 'Geoserver & OpenLayers (GIS)', 'category' => 'database', 'sort_order' => 5],
 
             // Tools & DevOps
-            ['name' => 'Git & GitHub', 'category' => 'tools', 'proficiency' => 90, 'sort_order' => 1],
-            ['name' => 'GitLab CI/CD', 'category' => 'tools', 'proficiency' => 85, 'sort_order' => 2],
-            ['name' => 'Composer', 'category' => 'tools', 'proficiency' => 90, 'sort_order' => 3],
-            ['name' => 'Linux (Ubuntu)', 'category' => 'tools', 'proficiency' => 85, 'sort_order' => 4],
-            ['name' => 'PHPUnit', 'category' => 'tools', 'proficiency' => 85, 'sort_order' => 5],
-            ['name' => 'Jira (Agile / Scrum)', 'category' => 'tools', 'proficiency' => 85, 'sort_order' => 6],
-            ['name' => 'Odoo ERP', 'category' => 'tools', 'proficiency' => 80, 'sort_order' => 7],
+            ['name' => 'Git & GitHub', 'category' => 'tools', 'sort_order' => 1],
+            ['name' => 'GitLab CI/CD', 'category' => 'tools', 'sort_order' => 2],
+            ['name' => 'Composer', 'category' => 'tools', 'sort_order' => 3],
+            ['name' => 'Linux (Ubuntu)', 'category' => 'tools', 'sort_order' => 4],
+            ['name' => 'PHPUnit Testing', 'category' => 'tools', 'sort_order' => 5],
+            ['name' => 'Jira (Agile / Scrum)', 'category' => 'tools', 'sort_order' => 6],
+            ['name' => 'Odoo ERP', 'category' => 'tools', 'sort_order' => 7],
 
             // Networking
-            ['name' => 'TCP/IP, DNS & BGP', 'category' => 'networking', 'proficiency' => 85, 'sort_order' => 1],
-            ['name' => 'Cisco Routing & Switching', 'category' => 'networking', 'proficiency' => 85, 'sort_order' => 2],
-            ['name' => 'Wireshark Packet Analysis', 'category' => 'networking', 'proficiency' => 80, 'sort_order' => 3],
-            ['name' => 'Cisco Packet Tracer & GNS3', 'category' => 'networking', 'proficiency' => 85, 'sort_order' => 4],
-            ['name' => 'Cybersecurity Awareness', 'category' => 'networking', 'proficiency' => 80, 'sort_order' => 5],
+            ['name' => 'TCP/IP, DNS & BGP', 'category' => 'networking', 'sort_order' => 1],
+            ['name' => 'Cisco Routing & Switching', 'category' => 'networking', 'sort_order' => 2],
+            ['name' => 'Wireshark Packet Analysis', 'category' => 'networking', 'sort_order' => 3],
+            ['name' => 'Cisco Packet Tracer & GNS3', 'category' => 'networking', 'sort_order' => 4],
+            ['name' => 'Cybersecurity Awareness', 'category' => 'networking', 'sort_order' => 5],
         ];
 
         foreach ($skills as $skill) {
@@ -114,11 +108,11 @@ class DatabaseSeeder extends Seeder
         Experience::create([
             'title' => 'Software Engineer',
             'company' => 'IT Madani Expert Sdn Bhd',
-            'description' => 'Software Engineer developing and maintaining enterprise web applications using Laravel, PHP, MySQL, and PostgreSQL while modernizing legacy systems and building GIS-based platforms.',
+            'description' => 'Software Engineer developing and maintaining enterprise web applications using Laravel, PHP, MySQL, and PostgreSQL while modernizing legacy systems.',
             'responsibilities' => [
                 'Developed and maintained procurement and contractor management systems for Lembaga Air Perak (LAP) using Vanilla PHP and MySQL while integrating new features into existing legacy workflows.',
-                'Designed and developed a Laravel-based Tadika Alumni & Management System from scratch, implementing role-based access control, authentication, reporting modules, and Excel export functionality.',
-                'Managed the complete software development lifecycle including requirements gathering, database design, backend development, testing, debugging, deployment, and production support.',
+                'Designed and developed a Laravel-based Tadika Alumni & Management System, implementing role-based access control, authentication, reporting modules, and Excel export functionality.',
+                'Managed key parts of the software development lifecycle including database design, backend development, testing, debugging, and deployment support.',
                 'Performed reverse engineering on a legacy PLGS system without source code by analyzing live PostgreSQL databases and existing business workflows.',
                 'Contributed to the redevelopment of the PLGS platform using Laravel, PostgreSQL, Geoserver, OpenLayers, and Proj4js to support modern GIS-based land management.',
             ],
@@ -131,11 +125,11 @@ class DatabaseSeeder extends Seeder
         Experience::create([
             'title' => 'Junior Software Engineer',
             'company' => 'Carsome (K-Youth Program)',
-            'description' => 'Designed, developed, and maintained scalable backend services using JavaScript, Node.js, Express, and NestJS.',
+            'description' => 'Designed, developed, and maintained backend services using JavaScript, Node.js, Express, and NestJS.',
             'responsibilities' => [
-                'Designed, developed, and maintained scalable backend services using JavaScript, Node.js, Express, and NestJS.',
+                'Designed, developed, and maintained backend services using JavaScript, Node.js, Express, and NestJS.',
                 'Utilized Git, GitHub, and GitLab CI/CD pipelines to streamline collaborative development and deployment workflows.',
-                'Utilized Jira actively for sprint planning, backlog refinement, and daily task tracking, increasing overall delivery transparency within a fast-paced Agile/Scrum team environment.',
+                'Participated actively in sprint planning, backlog refinement, and daily task tracking within a fast-paced Agile/Scrum team environment.',
             ],
             'start_date' => '2025-05-01',
             'end_date' => '2025-10-31',
@@ -151,7 +145,7 @@ class DatabaseSeeder extends Seeder
             'responsibilities' => [
                 'Developed and enhanced CRM and HRM modules in Odoo (lead management, sales tracking, biometric attendance).',
                 'Designed workflow diagrams and system documentation to improve usability and training.',
-                'Assisted in website development using HTML, CSS, and JavaScript, ensuring responsive and user friendly design.',
+                'Assisted in website development using HTML, CSS, and JavaScript, ensuring responsive design.',
             ],
             'start_date' => '2024-09-01',
             'end_date' => '2025-01-31',
@@ -162,12 +156,12 @@ class DatabaseSeeder extends Seeder
 
         // Projects
         Project::create([
-            'title' => 'Payung – Insurance Agent Directory & CRM System',
+            'title' => 'Payung – Insurance Agent Directory & CRM',
             'slug' => 'payung-insurance-crm',
-            'description' => 'Multi-tenant CRM platform built using Laravel 13, Fortify, Jetstream, and Spatie Permission with automated policy expiration reminders and Livewire reactive interfaces.',
-            'technologies' => ['Laravel 13', 'Fortify / Jetstream', 'Livewire', 'Flux UI', 'Tailwind CSS', 'MySQL', 'Spatie Permission'],
+            'description' => 'Multi-tenant CRM platform built with Laravel 12, Fortify, and Jetstream, featuring automated policy expiration schedulers and reactive Livewire UI.',
+            'technologies' => ['Laravel', 'Livewire', 'Tailwind CSS', 'MySQL', 'Flux UI'],
             'features' => [
-                'Built a multi-tenant CRM platform using Laravel 13, Fortify, Jetstream, and Spatie Permission.',
+                'Built a multi-tenant CRM platform using Laravel, Fortify, Jetstream, and Spatie Permission.',
                 'Developed responsive interfaces using Livewire, Flux UI, and Tailwind CSS.',
                 'Implemented automated schedulers for insurance policy expiration reminders.',
                 'Built secure Excel import pipelines for bulk customer and policy data migration.',
@@ -180,28 +174,28 @@ class DatabaseSeeder extends Seeder
         Project::create([
             'title' => 'PLGS System Modernization & Re-engineering',
             'slug' => 'plgs-system-modernization',
-            'description' => 'Reverse-engineered a legacy land management system without access to source code and redesigned the application architecture using Laravel, PostgreSQL, and GIS integrations.',
-            'technologies' => ['Laravel 12', 'PostgreSQL', 'Reverse Engineering', 'Geoserver', 'OpenLayers', 'Proj4js', 'Laravel Fortify', 'Spatie'],
+            'description' => 'Modernized a legacy land management system by analyzing live database structures and re-architecting the application using Laravel, PostgreSQL, and GIS mapping.',
+            'technologies' => ['Laravel', 'PostgreSQL', 'OpenLayers', 'Geoserver', 'Spatie'],
             'features' => [
-                'Reverse-engineered a legacy land management system without access to source code.',
-                'Redesigned the application architecture using Laravel and PostgreSQL.',
+                'Analyzed live database structures for a legacy land management system without original source access.',
+                'Re-architected the application using Laravel and PostgreSQL.',
                 'Implemented GIS functionality using Geoserver, OpenLayers, and Proj4js.',
                 'Developed secure authentication and audit logging using Laravel Fortify and Spatie packages.',
-                'Analyzed complex business workflows and translated them into maintainable Laravel modules.',
+                'Translated complex business workflows into maintainable Laravel modules.',
             ],
             'is_featured' => true,
             'sort_order' => 2,
         ]);
 
         Project::create([
-            'title' => 'SPEED System & SPEED Contractor System (LAP)',
+            'title' => 'SPEED System (LAP)',
             'slug' => 'speed-contractor-system-lap',
-            'description' => 'Core procurement and contractor management systems for Lembaga Air Perak (LAP) built using Vanilla PHP and MySQL.',
-            'technologies' => ['Vanilla PHP', 'MySQL', 'Procurement Workflows', 'Legacy Integration'],
+            'description' => 'Procurement and contractor management systems developed for Lembaga Air Perak (LAP), implementing custom backend modules and legacy database workflows.',
+            'technologies' => ['Vanilla PHP', 'MySQL', 'Database Migration'],
             'features' => [
-                'Contributed to the development and rigorous maintenance of core procurement and contractor management systems for Lembaga Air Perak (LAP).',
-                'Implemented custom backend modules, complex database integrations, and legacy workflow enhancements using Vanilla PHP.',
-                'Assisted in deep troubleshooting, debugging, and maintaining high-availability production systems to ensure operational stability.',
+                'Contributed to procurement and contractor management systems for Lembaga Air Perak (LAP).',
+                'Implemented custom backend modules and legacy database workflow enhancements using Vanilla PHP.',
+                'Assisted in troubleshooting, debugging, and maintaining production systems for operational stability.',
             ],
             'is_featured' => true,
             'sort_order' => 3,
@@ -211,13 +205,13 @@ class DatabaseSeeder extends Seeder
             'title' => 'Tadika Alumni & Management System',
             'slug' => 'tadika-alumni-management-system',
             'description' => 'Laravel-based alumni management platform featuring role-based authentication, reporting modules, and Excel export functionality.',
-            'technologies' => ['Laravel 12', 'MySQL', 'Laravel Breeze', 'Tailwind CSS', 'Bootstrap', 'Alpine.js', 'Laravel Excel', 'PHPUnit'],
+            'technologies' => ['Laravel', 'MySQL', 'Laravel Breeze', 'Tailwind CSS', 'Bootstrap', 'Alpine.js', 'Laravel Excel', 'PHPUnit'],
             'features' => [
-                'Developed a complete alumni management platform with role-based authentication.',
+                'Developed an alumni management platform with role-based authentication.',
                 'Designed responsive interfaces using Blade, Tailwind CSS, Bootstrap, and Alpine.js.',
                 'Implemented Excel export functionality using Laravel Excel.',
                 'Developed CRUD modules, reporting features, and secure authentication.',
-                'Created PHPUnit tests to improve application reliability.',
+                'Created PHPUnit tests to verify core features.',
             ],
             'is_featured' => true,
             'sort_order' => 4,
@@ -229,8 +223,8 @@ class DatabaseSeeder extends Seeder
             'description' => 'Custom Odoo CRM & HRM features including automated sales pipelines, lead tracking, and ZKTeco biometric device integration.',
             'technologies' => ['Odoo ERP', 'Python', 'ZKTeco Biometric', 'HRM & CRM'],
             'features' => [
-                'Implemented custom CRM features including automated sales pipelines, lead tracking, and seamless HRM integration with ZKTeco biometric devices.',
-                'Built interactive dashboards and automated workflows to optimize data reporting and maximize client operational efficiency.',
+                'Implemented custom CRM features including automated sales pipelines, lead tracking, and biometric attendance device integration.',
+                'Built data reporting dashboards to assist daily business operations.',
             ],
             'is_featured' => false,
             'sort_order' => 5,
@@ -239,11 +233,11 @@ class DatabaseSeeder extends Seeder
         Project::create([
             'title' => 'Website Development (Odoo)',
             'slug' => 'website-development-odoo',
-            'description' => 'Custom membership system and website redesign on the Odoo platform to elevate user engagement and streamline client registration.',
-            'technologies' => ['Odoo ERP', 'Python', 'HTML/CSS', 'Website Customization'],
+            'description' => 'Custom membership system and website redesign on the Odoo platform.',
+            'technologies' => ['Odoo ERP', 'Python', 'HTML/CSS'],
             'features' => [
-                'Designed and implemented a custom membership system within Odoo to streamline client registration, multi-tier workflows, and client updates.',
-                'Redesigned and deployed the company website using the Odoo platform with modern navigation and mobile optimization to elevate overall user engagement.',
+                'Designed and implemented a membership workflow within Odoo to streamline client registrations.',
+                'Redesigned and deployed the company website using Odoo with mobile optimization.',
             ],
             'is_featured' => false,
             'sort_order' => 6,
@@ -252,11 +246,11 @@ class DatabaseSeeder extends Seeder
         Project::create([
             'title' => 'Web-Based Fishing Pond Operations System',
             'slug' => 'fishing-pond-management-system',
-            'description' => 'Booking and inventory management platform built using Laravel, HTML, CSS, and JavaScript to handle staff scheduling and customer operations.',
+            'description' => 'Booking and operations management platform built using Laravel, HTML, CSS, and JavaScript.',
             'technologies' => ['Laravel', 'MySQL', 'HTML5', 'CSS3', 'JavaScript'],
             'features' => [
-                'Designed and developed a booking and inventory management platform using Laravel, HTML, CSS, and JavaScript.',
-                'Integrated structural database management and backend logic to safely handle complex staff scheduling and real-time customer operations.',
+                'Designed and developed a booking platform using Laravel, HTML, CSS, and JavaScript.',
+                'Implemented database schema and business logic for staff scheduling and customer records.',
             ],
             'is_featured' => false,
             'sort_order' => 7,
@@ -266,21 +260,21 @@ class DatabaseSeeder extends Seeder
             'title' => 'Automated Plant Watering System',
             'slug' => 'automated-plant-watering-system',
             'description' => 'Arduino-based IoT prototype for real-time soil moisture monitoring and automated water pump control.',
-            'technologies' => ['Arduino Microcontroller', 'IoT', 'C/C++', 'Soil Moisture Sensors'],
+            'technologies' => ['Arduino', 'IoT', 'C/C++', 'Sensors'],
             'features' => [
-                'Developed hardware components including soil moisture sensors, water pumps, and an Arduino microcontroller for real-time data processing and control.',
-                'Programmed the Arduino board using C/C++ to orchestrate the operation of sensors, actuators, and communication protocols with the IoT platform.',
+                'Developed hardware components including soil moisture sensors, water pumps, and an Arduino microcontroller.',
+                'Programmed the board using C/C++ to read sensor inputs and trigger pump automation.',
             ],
             'is_featured' => false,
             'sort_order' => 8,
         ]);
 
-        // Services
+        // Services (Grounded & Aligned)
         $services = [
             [
                 'title' => 'Enterprise Laravel Development',
                 'icon' => 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4',
-                'description' => 'Building secure and scalable web applications using Laravel, Livewire, Blade, Tailwind CSS, RESTful APIs, and relational databases.',
+                'description' => 'Building secure and responsive web applications using Laravel, Livewire, Blade, Tailwind CSS, Spatie role security, and relational databases.',
                 'sort_order' => 1,
             ],
             [
@@ -290,9 +284,9 @@ class DatabaseSeeder extends Seeder
                 'sort_order' => 2,
             ],
             [
-                'title' => 'Database Design & Optimization',
+                'title' => 'Database Design & Management',
                 'icon' => 'M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
-                'description' => 'Designing clean relational database schemas (PostgreSQL/MySQL), writing optimized SQL queries, database migrations, and structuring robust data models for web applications.',
+                'description' => 'Designing clean relational schemas in PostgreSQL and MySQL, managing automated migrations, and structuring reliable data models for web applications.',
                 'sort_order' => 3,
             ],
             [
@@ -312,7 +306,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'hakimnizam772@gmail.com',
             'phone' => '011-51468013',
             'location' => 'Sungai Siput (U), Perak',
-            'github_url' => 'https://anymz772.github.io/portfolio/',
+            'portfolio_url' => 'https://aimanhakim.homes/',
+            'github_url' => 'https://github.com/anymz772',
         ]);
     }
 }

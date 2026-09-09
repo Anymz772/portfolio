@@ -21,18 +21,10 @@
                 <option value="">Select Category</option>
                 <option value="backend" {{ old('category') == 'backend' ? 'selected' : '' }}>Backend</option>
                 <option value="frontend" {{ old('category') == 'frontend' ? 'selected' : '' }}>Frontend</option>
+                <option value="database" {{ old('category') == 'database' ? 'selected' : '' }}>Database</option>
                 <option value="tools" {{ old('category') == 'tools' ? 'selected' : '' }}>Tools</option>
                 <option value="networking" {{ old('category') == 'networking' ? 'selected' : '' }}>Networking</option>
             </select>
-        </div>
-
-        <div>
-            <div class="flex justify-between items-center mb-2">
-                <label class="form-label">Proficiency (%)</label>
-                <span id="proficiency-value" class="text-primary font-display font-bold text-sm">90%</span>
-            </div>
-            <input type="range" name="proficiency" value="{{ old('proficiency', 90) }}" min="0" max="100"
-                   class="w-full accent-primary bg-background rounded-lg h-2 cursor-pointer" oninput="document.getElementById('proficiency-value').textContent = this.value + '%'">
         </div>
 
         <div>

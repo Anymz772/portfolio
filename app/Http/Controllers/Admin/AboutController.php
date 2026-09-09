@@ -10,12 +10,12 @@ class AboutController extends Controller
 {
     public function edit()
     {
-        $about = AboutContent::firstOrCreate([
+        $about = AboutContent::firstOrCreate([], [
             'bio' => 'A software engineer passionate about creating scalable backend systems...',
-            'projects_count' => 10,
+            'projects_count' => 8,
             'experience_years' => 2,
-            'expertise_level' => 'Laravel Expert',
-            'development_type' => 'Full Stack',
+            'expertise_level' => 'Software Engineer',
+            'development_type' => 'Laravel & Web Systems',
         ]);
 
         return view('admin.about.edit', compact('about'));

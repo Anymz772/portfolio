@@ -139,29 +139,25 @@ document.addEventListener('alpine:init', () => {
 
             const form = event.target;
             const formData = new FormData(form);
-
-            // Determine if submitting to external service (like Formspree) or local Laravel route
-            const isExternal = form.action.startsWith('http://') || form.action.startsWith('https://');
-            const isSameOrigin = !isExternal || form.action.startsWith(window.location.origin);
+            const isExternal = /^https?:\/\//.test(form.action) && ! form.action.startsWith(window.location.origin);
 
             const headers = {
                 Accept: 'application/json',
             };
 
-            if (isSameOrigin) {
+            if (! isExternal) {
                 const csrfMeta = document.querySelector('meta[name="csrf-token"]');
-                if (csrfMeta && csrfMeta.content) {
+                if (csrfMeta?.content) {
                     headers['X-CSRF-TOKEN'] = csrfMeta.content;
                 }
             } else {
-                // Delete Laravel CSRF token when sending to third-party endpoints to prevent CORS header issues
                 formData.delete('_token');
             }
 
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    headers: headers,
+                    headers,
                     body: formData,
                 });
 
@@ -172,18 +168,24 @@ document.addEventListener('alpine:init', () => {
                     setTimeout(() => {
                         this.sent = false;
                     }, 5000);
-                } else {
-                    const data = await response.json().catch(() => ({}));
-                    if (data && data.errors && data.errors.length > 0) {
-                        this.errorMessage = data.errors.map((e) => e.message || e).join(', ');
-                    } else if (data && data.error) {
-                        this.errorMessage = data.error;
-                    } else {
-                        this.errorMessage = 'Could not send message. Please try again or reach out directly by email.';
-                    }
+
+                    return;
                 }
-            } catch (error) {
-                console.error('Contact form error:', error);
+
+                const data = await response.json().catch(() => ({}));
+
+                if (data?.error) {
+                    this.errorMessage = data.error;
+                } else if (data?.errors) {
+                    this.errorMessage = Array.isArray(data.errors)
+                        ? data.errors.map((error) => error.message || error).join(' ')
+                        : Object.values(data.errors).flat().join(' ');
+                } else if (data?.message) {
+                    this.errorMessage = data.message;
+                } else {
+                    this.errorMessage = 'Could not send message. Please try again or reach out directly by email.';
+                }
+            } catch {
                 this.errorMessage = 'Network error sending message. Please check your connection or contact me via email.';
             } finally {
                 this.loading = false;

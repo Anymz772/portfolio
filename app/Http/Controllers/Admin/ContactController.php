@@ -50,6 +50,7 @@ class ContactController extends Controller
             'email' => 'nullable|email|max:255',
             'phone' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
+            'portfolio_url' => 'nullable|url|max:255',
             'linkedin_url' => 'nullable|url|max:255',
             'github_url' => 'nullable|url|max:255',
             'twitter_url' => 'nullable|url|max:255',
